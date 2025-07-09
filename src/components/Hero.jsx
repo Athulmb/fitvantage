@@ -32,12 +32,13 @@ const HeroSection = () => {
 
           {/* Center Image */}
           <div className="absolute inset-0 flex items-center justify-center z-0">
-            <img
-              src="/Heromain01.png"
-              alt="Main Hero"
-              className="w-[280px] sm:w-[400px] md:w-[600px] lg:w-[750px] xl:w-[850px] 2xl:w-[1000px] object-contain translate-y-10 sm:translate-y-20 md:translate-y-28 lg:translate-y-36"
-            />
-          </div>
+  <img
+    src="/Heromain.png"
+    alt="Main Hero"
+    className="w-[180px] sm:w-[270px] md:w-[360px] lg:w-[460px] xl:w-[540px] 2xl:w-[620px] object-contain translate-y-10 sm:translate-y-20 md:translate-y-28 lg:translate-y-36"
+  />
+</div>
+
         </div>
 
         {/* Bottom Left Stats */}
