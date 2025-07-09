@@ -88,7 +88,7 @@ const FitNavbar = () => {
         >
           <MobileNavHeader className="w-full justify-between px-4 py-2">
             {/* Logo Crossfade - Mobile */}
-            <div className="relative w-44 h-14 transition-all"> {/* Increased from w-36 h-12 */}
+            <div className="relative w-44 h-10 transition-all"> {/* Increased from w-36 h-12 */}
               <img
                 src="/logo.png"
                 alt="FitVantage Logo"

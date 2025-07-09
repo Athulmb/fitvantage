@@ -22,7 +22,7 @@ const ServiceCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(1);
 
   return (
-    <section className="w-full py-20 bg-gradient-to-b from-black to-[#071109] text-white text-center font-lufga">
+    <section className="w-full py-20 bg-gradient-to-b from-[#010a04] to-[#07160b] text-white text-center font-lufga">
      <h2 className="text-4xl font-bold mb-12">
   Service{" "}
   <span className="italic relative inline-block px-1">
