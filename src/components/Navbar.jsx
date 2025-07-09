@@ -33,7 +33,7 @@ const FitNavbar = () => {
 
   return (
     <>
-      {/* Backdrop blur when mobile menu is open */}
+      {/* Backdrop when mobile menu is open */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-all duration-300" />
       )}
@@ -42,12 +42,25 @@ const FitNavbar = () => {
         {/* Desktop Navbar */}
         <NavBody
           visible={visible}
-          className="!max-w-7xl px-6 py-3 rounded-full !bg-transparent backdrop-blur-md shadow-md"
+          className="!max-w-8xl px-6 py-3 rounded-full !bg-transparent backdrop-blur-md shadow-md"
         >
           <div className="flex w-full items-center justify-between gap-6">
-            {/* Logo Image Only */}
-            <div className="flex items-center">
-              <img src="/logo.png" alt="FitVantage Logo" className="w-30 h-8" />
+            {/* Logo Crossfade - Desktop */}
+            <div className="relative w-36 h-12"> {/* Increased from w-28 h-8 */}
+              <img
+                src="/logo.png"
+                alt="FitVantage Logo"
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                  visible ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <img
+                src="/logo2.png"
+                alt="FitVantage Logo Scrolled"
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                  visible ? "opacity-100" : "opacity-0"
+                }`}
+              />
             </div>
 
             {/* Navigation Links */}
@@ -74,17 +87,32 @@ const FitNavbar = () => {
           className="!max-w-7xl px-4 py-2 rounded-full !bg-transparent backdrop-blur-md shadow-md"
         >
           <MobileNavHeader className="w-full justify-between px-4 py-2">
-            {/* Logo Image Only */}
-            <div className="flex items-center">
-              <img src="/logo.png" alt="FitVantage Logo" className="w-30 h-7" />
+            {/* Logo Crossfade - Mobile */}
+            <div className="relative w-44 h-14 transition-all"> {/* Increased from w-36 h-12 */}
+              <img
+                src="/logo.png"
+                alt="FitVantage Logo"
+                className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${
+                  visible ? "opacity-0 scale-110" : "opacity-100 scale-125"
+                }`}
+              />
+              <img
+                src="/logo2.png"
+                alt="FitVantage Logo Scrolled"
+                className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${
+                  visible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                }`}
+              />
             </div>
 
+            {/* Hamburger */}
             <MobileNavToggle
               isOpen={menuOpen}
               onClick={() => setMenuOpen(!menuOpen)}
             />
           </MobileNavHeader>
 
+          {/* Mobile Menu Items */}
           <MobileNavMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)}>
             {navLinks.map((item, idx) => (
               <a

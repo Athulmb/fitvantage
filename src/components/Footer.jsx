@@ -12,9 +12,8 @@ import {
         <div className="flex flex-col md:flex-row justify-between items-start gap-10">
           {/* Left section */}
           <div className="max-w-sm">
-            <div className="flex items-center gap-2">
-              <img src="/logo-icon.png" alt="logo" className="w-6 h-6" />
-              <span className="text-green-500 font-semibold text-xl">FitVantage</span>
+          <div className="flex items-center">
+              <img src="/logo.png" alt="FitVantage Logo" className="w-30 h-8" />
             </div>
             <p className="text-xs text-gray-400 mt-4 leading-5">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
