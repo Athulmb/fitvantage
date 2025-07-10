@@ -37,7 +37,7 @@ import {
             <div className="flex flex-col gap-4">
   {/* App Store Box */}
   <div className="border border-gray-500 rounded-lg px-3 py-2 flex items-center gap-2 w-fit">
-    <img src="/apple-icon.png" alt="Apple" className="w-5 h-5" />
+    <img src="/applestore.png" alt="Apple" className="w-10 h-10" />
     <div className="text-left leading-tight">
       <p className="text-[10px] text-gray-400">Download on the</p>
       <p className="text-sm font-semibold">App Store</p>
@@ -46,7 +46,7 @@ import {
 
   {/* Google Play Box */}
   <div className="border border-gray-500 rounded-lg px-3 py-2 flex items-center gap-2 w-fit">
-    <img src="/google-play-icon.png" alt="Google Play" className="w-5 h-5" />
+    <img src="/playstore.png" alt="Google Play" className="w-10 h-10" />
     <div className="text-left leading-tight">
       <p className="text-[10px] text-gray-400">Get it on</p>
       <p className="text-sm font-semibold">Google Play</p>

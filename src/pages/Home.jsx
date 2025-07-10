@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "../components/Hero";
 import ServiceCarousel from "../components/ServiceCarousel";
 import ProgramCarousel from "../components/ProgramCarousel";
+import CenterSlider from "../components/CenterSlider";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <HeroSection />
       <ServiceCarousel />
       <ProgramCarousel />
+      <CenterSlider/>
     </>
   );
 };

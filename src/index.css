@@ -9,3 +9,12 @@
     color: transparent;
   }
   
+
+  .swiper-custom-pagination .swiper-pagination-bullet {
+    @apply w-2 h-2 bg-white/30 rounded-full transition-all duration-300;
+  }
+  
+  .swiper-custom-pagination .swiper-pagination-bullet-active {
+    @apply w-6 bg-green-400;
+  }
+  
