@@ -3,6 +3,8 @@ import HeroSection from "../components/Hero";
 import ServiceCarousel from "../components/ServiceCarousel";
 import ProgramCarousel from "../components/ProgramCarousel";
 import CenterSlider from "../components/CenterSlider";
+import WorkoutFormat from "../components/WorkoutFormat";
+import SportsFormat from "../components/SportsFormat";
 
 const Home = () => {
   return (
@@ -11,6 +13,9 @@ const Home = () => {
       <ServiceCarousel />
       <ProgramCarousel />
       <CenterSlider/>
+      <WorkoutFormat />
+      <SportsFormat/>
+
     </>
   );
 };

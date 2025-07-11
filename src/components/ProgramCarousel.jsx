@@ -39,7 +39,7 @@ const ProgramCarousel = () => {
   return (
     <section className="w-full py-20 bg-[#0D1310] text-white text-center font-lufga">
       {/* Heading */}
-      <h2 className="text-4xl font-bold mb-12">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-12">
         Our{" "}
         <span className="italic relative inline-block px-1">
           <span className="relative z-10 px-3 py-1">Programs</span>
@@ -56,9 +56,8 @@ const ProgramCarousel = () => {
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
         loop={true}
-        spaceBetween={30}
+        spaceBetween={20}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -73,34 +72,44 @@ const ProgramCarousel = () => {
         breakpoints={{
           0: {
             slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          480: {
+            slidesPerView: 1.2,
+            spaceBetween: 15,
           },
           640: {
             slidesPerView: 1.5,
+            spaceBetween: 20,
           },
           768: {
             slidesPerView: 2,
+            spaceBetween: 25,
           },
           1024: {
             slidesPerView: 3,
+            spaceBetween: 30,
           },
         }}
         modules={[EffectCoverflow, Pagination]}
-        className="w-full max-w-6xl px-4 sm:px-6"
+        className="w-full max-w-7xl px-4 sm:px-6"
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
       >
         {programs.map((item, index) => (
           <SwiperSlide key={index} className="flex justify-center">
-            <div className="w-[280px] rounded-2xl overflow-hidden bg-[#1a1a1a] shadow-xl relative transition-transform duration-300 ease-in-out">
+            <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[360px] rounded-2xl overflow-hidden bg-[#1a1a1a] shadow-xl relative transition-transform duration-300 ease-in-out">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-64 sm:h-72 object-cover"
+                className="w-full h-[240px] sm:h-[260px] md:h-[280px] object-cover"
               />
               <div className="absolute bottom-0 w-full h-24 bg-black/50 backdrop-blur-md px-5 py-3 flex flex-col justify-end">
-                <h3 className="font-bold text-white text-lg">{item.title}</h3>
-                <p className="text-sm text-white/80">{item.subtitle}</p>
+                <h3 className="font-bold text-white text-base sm:text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/80">{item.subtitle}</p>
               </div>
             </div>
           </SwiperSlide>
