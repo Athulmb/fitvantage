@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   NavBody,
@@ -24,10 +25,10 @@ const FitNavbar = () => {
   });
 
   const navLinks = [
-    { name: "Home", link: "#home" },
+    { name: "Home", link: "/" },
     { name: "About Us", link: "#about" },
-    { name: "Our Services", link: "#services" },
-    { name: "Blog", link: "#blog" },
+    { name: "Our Services", link: "/services" },
+    { name: "Blog", link: "/blog" },
     { name: "Contact Us", link: "#contact" },
   ];
 
