@@ -8,7 +8,7 @@ const HeroSection = () => {
     >
       <div className="max-w-7xl w-full flex flex-col items-center justify-center z-10">
         {/* Headline */}
-        <div className="w-full flex flex-col md:flex-row justify-center text-center md:text-left gap-10 sm:gap-14 -mt-12 sm:-mt-16 px-2">
+        <div className="w-full flex flex-col md:flex-row justify-center text-center md:text-left gap-10 sm:gap-14 -mt-32 md:-mt-12 lg:-mt-16 px-2">
           {/* Left Text */}
           <div className="flex flex-col justify-center items-center md:items-end">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide italic">
@@ -30,14 +30,14 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Center Image */}
+          {/* Center Image - Show on small devices in same position, positioned up on tablets, slightly left on desktop */}
           <div className="absolute inset-0 flex items-center justify-center z-0">
-  <img
-    src="/Heromain.png"
-    alt="Main Hero"
-    className="w-[180px] sm:w-[270px] md:w-[360px] lg:w-[460px] xl:w-[540px] 2xl:w-[620px] object-contain translate-y-10 sm:translate-y-20 md:translate-y-28 lg:translate-y-36"
-  />
-</div>
+            <img
+              src="/Heromain.png"
+              alt="Main Hero"
+              className="w-[280px] md:w-[360px] lg:w-[500px] xl:w-[500px] 2xl:w-[550px] object-contain translate-y-32 md:translate-y-12 md:-translate-x-4 lg:-translate-x-8 lg:translate-y-36"
+            />
+          </div>
 
         </div>
 

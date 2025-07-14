@@ -49,7 +49,12 @@ const CenterSlider = () => {
                 centeredSlides={true}
                 loop={true}
                 spaceBetween={30}
-                slidesPerView={3}
+                slidesPerView={1}
+                speed={600}
+                allowTouchMove={true}
+                threshold={50}
+                longSwipes={false}
+                shortSwipes={true}
                 coverflowEffect={{
                     rotate: 0,
                     stretch: 0,
@@ -64,15 +69,28 @@ const CenterSlider = () => {
                 breakpoints={{
                     0: {
                         slidesPerView: 1,
+                        spaceBetween: 20,
+                        effect: "slide",
+                    },
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        effect: "slide",
                     },
                     640: {
-                        slidesPerView: 1.5,
+                        slidesPerView: 1,
+                        spaceBetween: 25,
+                        effect: "slide",
                     },
                     768: {
-                        slidesPerView: 2,
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        effect: "slide",
                     },
                     1024: {
                         slidesPerView: 3,
+                        spaceBetween: 30,
+                        effect: "coverflow",
                     },
                 }}
                 modules={[EffectCoverflow, Pagination]}
@@ -84,19 +102,21 @@ const CenterSlider = () => {
                 {centers.map((center, index) => (
                     <SwiperSlide key={index} className="flex justify-center">
                         <div
-  className={`relative 
-    w-[340px]         // base width
-    sm:w-[360px]      // small screens
-    md:w-[380px]      // medium screens
-    lg:w-[400px]      // large screens
-    h-[500px] 
-    rounded-lg overflow-hidden 
-    bg-gradient-to-br ${center.gradient} 
-    shadow-2xl 
-    transition-transform duration-300 ease-in-out 
-    flex flex-col`}
->
-
+                            className={`relative 
+                                w-[280px]         // mobile width
+                                sm:w-[320px]      // small screens
+                                md:w-[340px]      // medium screens
+                                lg:w-[380px]      // large screens
+                                xl:w-[400px]      // extra large screens
+                                h-[480px]         // slightly reduced height for mobile
+                                sm:h-[500px]      // original height for larger screens
+                                rounded-lg overflow-hidden 
+                                bg-gradient-to-br ${center.gradient} 
+                                shadow-2xl 
+                                transition-transform duration-300 ease-in-out 
+                                flex flex-col
+                                mx-auto`}
+                        >
                             {/* Top (Image/Label) */}
                             <div className="flex-1 relative">
                                 <div className="absolute top-4 left-4 z-10">
@@ -110,11 +130,11 @@ const CenterSlider = () => {
 
                             {/* Bottom fixed content + BOOK NOW */}
                             <div className="shrink-0">
-                                <div className="h-[140px] px-6 py-6 bg-black/20 backdrop-blur-lg border-t border-white/10 text-left">
-                                    <h3 className="text-lg font-bold text-white">{center.title}</h3>
-                                    <p className="text-sm text-white/80 mt-2 flex items-center gap-1">
+                                <div className="h-[140px] px-4 sm:px-6 py-4 sm:py-6 bg-black/20 backdrop-blur-lg border-t border-white/10 text-left">
+                                    <h3 className="text-base sm:text-lg font-bold text-white">{center.title}</h3>
+                                    <p className="text-xs sm:text-sm text-white/80 mt-2 flex items-center gap-1">
                                         <svg
-                                            className="w-4 h-4 text-white/80"
+                                            className="w-3 h-3 sm:w-4 sm:h-4 text-white/80"
                                             fill="currentColor"
                                             viewBox="0 0 20 20"
                                         >
@@ -128,12 +148,11 @@ const CenterSlider = () => {
                                     </p>
                                 </div>
                                 <div
-                                    className="h-[52px] backdrop-blur-xl border-t border-white/10 text-white text-sm font-medium flex items-center justify-center rounded-b-2xl cursor-pointer"
+                                    className="h-[48px] sm:h-[52px] backdrop-blur-xl border-t border-white/10 text-white text-xs sm:text-sm font-medium flex items-center justify-center rounded-b-2xl cursor-pointer hover:bg-white/10 transition-colors duration-200"
                                     style={{ backgroundColor: "#6E6D6DB3" }}
                                 >
                                     BOOK NOW
                                 </div>
-
                             </div>
                         </div>
                     </SwiperSlide>
@@ -141,7 +160,7 @@ const CenterSlider = () => {
             </Swiper>
 
             {/* Pagination */}
-            <div className="swiper-custom-pagination mt-10 flex justify-center gap-2"></div>
+            <div className="swiper-custom-pagination mt-8 sm:mt-10 flex justify-center gap-2"></div>
         </section>
     );
 };

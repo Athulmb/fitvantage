@@ -57,7 +57,12 @@ const ProgramCarousel = () => {
         grabCursor={true}
         centeredSlides={true}
         loop={true}
-        spaceBetween={20}
+        spaceBetween={30}
+        speed={600}
+        allowTouchMove={true}
+        threshold={50}
+        longSwipes={false}
+        shortSwipes={true}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -72,34 +77,29 @@ const ProgramCarousel = () => {
         breakpoints={{
           0: {
             slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          480: {
-            slidesPerView: 1.2,
-            spaceBetween: 15,
+            spaceBetween: 20,
+            centeredSlides: true,
           },
           640: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 25,
-          },
-          1024: {
             slidesPerView: 3,
             spaceBetween: 30,
+            centeredSlides: true,
+          },
+          1280: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            centeredSlides: true,
           },
         }}
         modules={[EffectCoverflow, Pagination]}
-        className="w-full max-w-7xl px-4 sm:px-6"
+        className="w-full max-w-6xl mx-auto px-4 sm:px-6"
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
       >
         {programs.map((item, index) => (
           <SwiperSlide key={index} className="flex justify-center">
-            <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[360px] rounded-2xl overflow-hidden bg-[#1a1a1a] shadow-xl relative transition-transform duration-300 ease-in-out">
+            <div className="w-[280px] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[320px] h-[320px] sm:h-[340px] md:h-[360px] rounded-2xl overflow-hidden bg-[#1a1a1a] shadow-xl relative transition-transform duration-300 ease-in-out mx-auto">
               <img
                 src={item.image}
                 alt={item.title}
