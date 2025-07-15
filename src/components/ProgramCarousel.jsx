@@ -9,27 +9,27 @@ const programs = [
   {
     title: "Massive Upper body",
     subtitle: "7 Week · 5x/week",
-    image: "/programs.png",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
   },
   {
     title: "Strength & Power",
     subtitle: "5 Week · 4x/week",
-    image: "/programs.png",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
   },
   {
     title: "Shredded Physique",
     subtitle: "6 Week · 6x/week",
-    image: "/programs.png",
+    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=300&fit=crop",
   },
   {
     title: "Endurance Boost",
     subtitle: "4 Week · 3x/week",
-    image: "/programs.png",
+    image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400&h=300&fit=crop",
   },
   {
     title: "Fat Burn Express",
     subtitle: "3 Week · 5x/week",
-    image: "/programs.png",
+    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=300&fit=crop",
   },
 ];
 
@@ -37,7 +37,7 @@ const ProgramCarousel = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="w-full py-20 bg-[#0D1310] text-white text-center font-lufga">
+    <section className="w-full py-20 bg-[#0D1310] text-white text-center font-sans">
       {/* Heading */}
       <h2 className="text-3xl sm:text-4xl font-bold mb-12">
         Our{" "}
@@ -52,43 +52,55 @@ const ProgramCarousel = () => {
 
       {/* Swiper Carousel */}
       <Swiper
-        ref={swiperRef}
-        effect="coverflow"
-        grabCursor={true}
-        centeredSlides={true}
-        loop={true}
-        spaceBetween={30}
-        speed={600}
-        allowTouchMove={true}
-        threshold={50}
-        longSwipes={false}
-        shortSwipes={true}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        pagination={{
-          el: ".swiper-custom-pagination",
-          clickable: true,
-        }}
+       ref={swiperRef}
+       effect="coverflow"
+       grabCursor={true}
+       centeredSlides={true}
+       loop={true}
+       spaceBetween={30}
+       slidesPerView={1}
+       speed={600}
+       allowTouchMove={true}
+       threshold={50}
+       longSwipes={false}
+       shortSwipes={true}
+       coverflowEffect={{
+           rotate: 0,
+           stretch: 0,
+           depth: 100,
+           modifier: 1,
+           slideShadows: false,
+       }}
+       pagination={{
+           el: ".swiper-custom-pagination",
+           clickable: true,
+       }}
+
         breakpoints={{
           0: {
             slidesPerView: 1,
             spaceBetween: 20,
-            centeredSlides: true,
+            effect: "slide",
+          },
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            effect: "slide",
           },
           640: {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            effect: "slide",
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            effect: "slide",
+          },
+          1024: {
             slidesPerView: 3,
             spaceBetween: 30,
-            centeredSlides: true,
-          },
-          1280: {
-            slidesPerView: 5,
-            spaceBetween: 30,
-            centeredSlides: true,
+            effect: "coverflow",
           },
         }}
         modules={[EffectCoverflow, Pagination]}
@@ -99,7 +111,7 @@ const ProgramCarousel = () => {
       >
         {programs.map((item, index) => (
           <SwiperSlide key={index} className="flex justify-center">
-            <div className="w-[280px] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[320px] h-[320px] sm:h-[340px] md:h-[360px] rounded-2xl overflow-hidden bg-[#1a1a1a] shadow-xl relative transition-transform duration-300 ease-in-out mx-auto">
+            <div className="w-[280px] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[320px] h-[320px] sm:h-[340px] md:h-[360px] rounded-2xl overflow-hidden bg-[#1a1a1a] shadow-xl relative transition-all duration-300 ease-in-out mx-auto hover:scale-105 cursor-pointer">
               <img
                 src={item.image}
                 alt={item.title}
@@ -116,8 +128,28 @@ const ProgramCarousel = () => {
         ))}
       </Swiper>
 
-      {/* Pagination */}
-      <div className="swiper-custom-pagination mt-10 flex justify-center gap-2"></div>
+      {/* Custom Pagination */}
+      <div className="swiper-custom-pagination mt-8 sm:mt-10 flex justify-center gap-2"></div>
+      
+      <style jsx>{`
+        .swiper-custom-pagination .swiper-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background-color: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+        
+        .swiper-custom-pagination .swiper-pagination-bullet-active {
+          background-color: #10b981;
+          transform: scale(1.2);
+        }
+        
+        .swiper-slide-active .hover\\:scale-105 {
+          transform: scale(1.05);
+        }
+      `}</style>
     </section>
   );
 };

@@ -9,27 +9,22 @@ const centers = [
     {
         title: "Mass Fitness",
         location: "Jumeirah",
-        gradient: "from-yellow-400 via-red-500 to-pink-500",
     },
     {
         title: "Power Hub",
         location: "Deira",
-        gradient: "from-purple-600 via-indigo-600 to-blue-500",
     },
     {
         title: "Flex Zone",
         location: "Marina",
-        gradient: "from-green-400 via-emerald-600 to-teal-500",
     },
     {
         title: "Core Station",
         location: "Al Quoz",
-        gradient: "from-orange-400 via-pink-500 to-rose-600",
     },
     {
         title: "Prime Fit",
         location: "Business Bay",
-        gradient: "from-cyan-400 via-sky-500 to-blue-600",
     },
 ];
 
@@ -110,29 +105,35 @@ const CenterSlider = () => {
                                 xl:w-[400px]      // extra large screens
                                 h-[480px]         // slightly reduced height for mobile
                                 sm:h-[500px]      // original height for larger screens
-                                rounded-lg overflow-hidden 
-                                bg-gradient-to-br ${center.gradient} 
-                                shadow-2xl 
-                                transition-transform duration-300 ease-in-out 
+                                rounded-xl overflow-hidden 
+                                bg-white/10
+                                backdrop-blur-lg
+                                border border-white/20
+                                shadow-2xl
+                                transition-all duration-300 ease-in-out 
                                 flex flex-col
-                                mx-auto`}
+                                mx-auto
+                                before:absolute before:inset-0 before:bg-white/5 before:rounded-xl`}
                         >
                             {/* Top (Image/Label) */}
-                            <div className="flex-1 relative">
-                                <div className="absolute top-4 left-4 z-10">
-                                    <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full font-medium">
+                            <div className="flex-1 relative z-10">
+                                <div className="absolute top-4 left-4 z-20">
+                                    <span className="bg-black/40 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-medium border border-white/20">
                                         DAILY CLASSES
                                     </span>
                                 </div>
-                                {/* Optional image */}
-                                {/* <img src="/center.jpg" alt="Center" className="w-full h-full object-cover" /> */}
+                                {/* Optional image with glassmorphism overlay */}
+                                <div className="w-full h-full relative">
+                                    <img src="/Rectangle 40.png" alt="Center" className="w-full h-full object-cover opacity-80" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                                </div>
                             </div>
 
                             {/* Bottom fixed content + BOOK NOW */}
-                            <div className="shrink-0">
-                                <div className="h-[140px] px-4 sm:px-6 py-4 sm:py-6 bg-black/20 backdrop-blur-lg border-t border-white/10 text-left">
-                                    <h3 className="text-base sm:text-lg font-bold text-white">{center.title}</h3>
-                                    <p className="text-xs sm:text-sm text-white/80 mt-2 flex items-center gap-1">
+                            <div className="shrink-0 z-10">
+                                <div className="h-[140px] px-4 sm:px-6 py-4 sm:py-6 bg-black/30 backdrop-blur-xl border-t border-white/20 text-left">
+                                    <h3 className="text-base sm:text-lg font-bold text-white drop-shadow-lg">{center.title}</h3>
+                                    <p className="text-xs sm:text-sm text-white/90 mt-2 flex items-center gap-1 drop-shadow-sm">
                                         <svg
                                             className="w-3 h-3 sm:w-4 sm:h-4 text-white/80"
                                             fill="currentColor"
@@ -148,8 +149,7 @@ const CenterSlider = () => {
                                     </p>
                                 </div>
                                 <div
-                                    className="h-[48px] sm:h-[52px] backdrop-blur-xl border-t border-white/10 text-white text-xs sm:text-sm font-medium flex items-center justify-center rounded-b-2xl cursor-pointer hover:bg-white/10 transition-colors duration-200"
-                                    style={{ backgroundColor: "#6E6D6DB3" }}
+                                    className="h-[48px] sm:h-[52px] backdrop-blur-xl border-t border-white/20 text-white text-xs sm:text-sm font-medium flex items-center justify-center rounded-b-xl cursor-pointer hover:bg-white/20 transition-all duration-200 bg-white/10"
                                 >
                                     BOOK NOW
                                 </div>
