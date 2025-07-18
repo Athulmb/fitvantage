@@ -6,6 +6,8 @@ import CenterSlider from "../components/CenterSlider";
 import WorkoutFormat from "../components/WorkoutFormat";
 import SportsFormat from "../components/SportsFormat";
 import PricingCards from "../components/PrisingCards";
+import FitvantagePass from "../components/pass";
+import ReviewSection from "../components/ReviewSection";
 
 const Home = () => {
   return (
@@ -13,9 +15,11 @@ const Home = () => {
       <HeroSection />
       <ServiceCarousel />
       <ProgramCarousel />
+      <FitvantagePass />
       <CenterSlider/>
       <WorkoutFormat />
       <SportsFormat/>
+      <ReviewSection/>
       <PricingCards/>
 
     </>
