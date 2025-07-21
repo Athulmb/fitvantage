@@ -20,6 +20,11 @@ import {
               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </p>
           </div>
+
+
+
+
+          
   
           {/* Middle section - Links */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
